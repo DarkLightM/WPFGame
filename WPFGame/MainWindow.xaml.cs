@@ -17,73 +17,48 @@ namespace WPFGame
 {
     public partial class MainWindow : Window
     {
-        private int i = 20;
-        private System.Windows.Threading.DispatcherTimer dispatcherTimer;
-
         public MainWindow()
         {
             InitializeComponent();
-            dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
-            dispatcherTimer.Tick += new EventHandler(DispatcherTimer_Tick);
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
-            dispatcherTimer.Start();
+            button.Click += Button_Click;
         }
 
-        private void DispatcherTimer_Tick(object sender, EventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            label.Content = "Timer " + i;
-            CommandManager.InvalidateRequerySuggested();
-            i--;
-            mButton.MouseEnter += Button_MouseEnter;
-            if (i == -1)
-                EndGame();
-        }
-
-        private void Button_MouseEnter(object sender, MouseEventArgs e)
-        {
-            if (stopBox.IsChecked == false)
+            string levelNumber = cBox.Text;
+            string number = levelNumber.Substring(6);
+            switch (number)
             {
-                Random rnd = new Random();
-                int width = rnd.Next(50, 250);
-                int height = rnd.Next(50, 250);
-                mButton.Margin = new Thickness(width, height, 0, 0);
+                case "1":
+                    Level1 lvl1 = new Level1();
+                    lvl1.Show();
+                    break;
+                case "2":
+                    Level2 lvl2 = new Level2();
+                    lvl2.Show();
+                    break;
+                case "3":
+                    Level3 lvl3 = new Level3();
+                    lvl3.Show();
+                    break;
+                case "4":
+                    Level4 lvl4 = new Level4();
+                    lvl4.Show();
+                    break;
+                case "5":
+                    Level5 lvl5 = new Level5();
+                    lvl5.Show();
+                    break;
+                case "6":
+                    Level6 lvl6 = new Level6();
+                    lvl6.Show();
+                    break;
+                case "7":
+                    Level7 lvl7 = new Level7();
+                    lvl7.Show();
+                    break;
             }
-        }
-
-        private void BotLeftButton_Click(object sender, RoutedEventArgs e)
-        {
-            gMain.Children.Remove(TopRightButton);
-            if (!(gMain.Children.Contains(TopRightButton) || gMain.Children.Contains(BotRightButton)))
-                gMain.Children.Remove(BotLeftButton);
-        }
-
-        private void MButton_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            if (stopBox.IsChecked == true)
-            {
-                gMain.Children.RemoveRange(1, 6);
-                dispatcherTimer.Stop();
-                label.Content = "You won";
-                Button button = new Button()
-                {
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    VerticalAlignment = VerticalAlignment.Center,
-                    Content = "Next Level",
-                };
-                gMain.Children.Add(button);
-            }
-        }
-
-        private void BotRightButton_MouseWheel(object sender, MouseWheelEventArgs e)
-        {
-            gMain.Children.Remove(BotRightButton);
-        }
-
-        private void EndGame()
-        {
-            gMain.Children.RemoveRange(0, 6);
-            dispatcherTimer.Stop();
-            MessageBox.Show("You lost!!!");
+            Menu.Close();
         }
     }
 }

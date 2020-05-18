@@ -1,0 +1,20 @@
+﻿<Window x:Class="WPFGame.Level5"
+        x:Name="Lvl5"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFGame"
+        mc:Ignorable="d"
+        Title="Level5" Height="400" Width="400">
+    <Grid Name="Grid">
+        <Image Source="D:\Git\WPFGame\WPFGame\bin\Debug\Smile.png"></Image>
+        <Button Name="button" Height="40" Width="40" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="Button_Click">
+            <Button.ContextMenu>
+                <ContextMenu Name="cm"></ContextMenu>
+            </Button.ContextMenu>
+        </Button>
+        <CheckBox Name="cBox" Content="?" VerticalAlignment="Top" HorizontalAlignment="Left"></CheckBox>
+        <Rectangle x:Name="Button" Fill="White" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50"/>
+    </Grid>
+</Window>

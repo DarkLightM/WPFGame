@@ -1,0 +1,50 @@
+﻿<Window x:Class="WPFGame.Level6"
+        Name="Lvl6"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFGame"
+        mc:Ignorable="d"
+        Title="Level6" Height="400" Width="400">
+    <Grid x:Name="gMain">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <ScrollViewer>
+            <TreeView x:Name="treeView">
+                <TreeViewItem Name="t0" Header="Аниме">
+                    <TreeViewItem Name="t00" Header="Опенинг" Selected="T_Selected"></TreeViewItem>
+                    <TreeViewItem Name="t01" Header="Угадай по картинке" Selected="T_Selected"></TreeViewItem>
+                    <TreeViewItem Name="t02" Header="Многа букаф" Selected="T_Selected"></TreeViewItem>
+                    <TreeViewItem Name="t03" Header="Самый сложный вопрос" Selected="T_Selected"></TreeViewItem>
+                </TreeViewItem>
+                <TreeViewItem Header="Игры">
+                    <TreeViewItem Name="t10" Header="Саунд" Selected="T_Selected"></TreeViewItem>
+                    <TreeViewItem Name="t11" Header="Угадай по скриншоту" Selected="T_Selected"></TreeViewItem>
+                    <TreeViewItem Name="t12" Header="Описание из стима" Selected="T_Selected"></TreeViewItem>
+                    <TreeViewItem Name="t13" Header="История" Selected="T_Selected"></TreeViewItem>
+                </TreeViewItem>
+                <TreeViewItem Header="Фильмы">
+                    <TreeViewItem Name="t20" Header="Main Theme" Selected="T_Selected"></TreeViewItem>
+                    <TreeViewItem Name="t21" Header="Болтаем или едем?" Selected="T_Selected"></TreeViewItem>
+                    <TreeViewItem Name="t22" Header="Спасибо кинопоиску" Selected="T_Selected"></TreeViewItem>
+                    <TreeViewItem Name="t23" Header="Все еще достоин" Selected="T_Selected"></TreeViewItem>
+                </TreeViewItem>
+                <TreeViewItem Header="Все подряд">
+                    <TreeViewItem Name="t300" Header="История через века" Selected="T_Selected"></TreeViewItem>
+                    <TreeViewItem Name="t310" Header="Я могу слышать картинки" Selected="T_Selected"></TreeViewItem>
+                    <TreeViewItem Name="t32" Header="Сладкий вопрос" Selected="T_Selected"></TreeViewItem>
+                    <TreeViewItem Name="t33" Header="Фидбек" Selected="T_Selected"></TreeViewItem>
+                </TreeViewItem>
+            </TreeView>
+        </ScrollViewer>
+        <ScrollViewer Grid.Row="1" VerticalAlignment="Top">
+            <TextBlock x:Name="tblock" TextWrapping="Wrap" Grid.Row="1" VerticalAlignment="Top"></TextBlock>
+        </ScrollViewer>
+        <TextBlock x:Name="tbCounter" Text="Правильные ответы" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,30,0"></TextBlock>
+        <TextBox x:Name="tbox" Grid.Row="1" Height="30" VerticalAlignment="Bottom"></TextBox>
+        <Button x:Name="button" Content="Go" Grid.Row="1" Height="30" Width="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="Button_Click" IsDefault="True"></Button>
+    </Grid>
+</Window>
